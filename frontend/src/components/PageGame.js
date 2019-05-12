@@ -10,7 +10,6 @@ export default class PageGame extends React.Component {
     render() {
         return (
             <div>
-                game page
                 <Board></Board>
             </div>
         )

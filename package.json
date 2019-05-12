@@ -11,5 +11,10 @@
     "url": "/home/yash/gitwork/gitserver/ttt"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "s": "^0.1.1",
+    "socket.io": "^2.2.0"
+  }
 }
