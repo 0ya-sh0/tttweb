@@ -4,8 +4,9 @@ let io;
 function init(server) {
     io = socketio(server);
     io.on("connection", (socket)=>{
+        const createGame = require('./SimpleTTTRepo').createGame
         socket.on("test", ()=>{
-            console.log("test received")
+            createGame(socket);
         })
     })
 }
