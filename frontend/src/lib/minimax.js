@@ -43,11 +43,15 @@ const evaluate = (state, player) => {
     return score;
 }
 
-const minimax = (game, depth, player) => {
-    console.log("player = "+player)
+const minimax = (game, depth, player, maxDepth) => {
+
+    if(depth === maxDepth) {
+        return 0;
+    }
+    //console.log("player = "+player)
 	let score = evaluate(game._state, player);
     if(score === WIN_SCORE || score === LOSE_SCORE || game._state.gameComplete === constants.TIE) {
-        console.log(depth)
+        //console.log(depth)
         return score;
     }
     const cells = getEmptyCells(game._state);
@@ -64,7 +68,7 @@ const minimax = (game, depth, player) => {
         const y = cell[1];
         const newGame = new Game(copy(game._state));
         newGame.doMove(cell[0], cell[1], newGame._state.currentPlayer);
-		const currentScore = minimax(newGame, depth+1, player);
+		const currentScore = minimax(newGame, depth+1, player, maxDepth);
 
 		if (toMaximize) {
 			if (currentScore > score)
@@ -78,16 +82,16 @@ const minimax = (game, depth, player) => {
 	return score;
 }
 
-const findBestMove = (game) => {
-    const cells = getEmptyCells(game._state);
+const findBestMove = (state, maxDepth = 100) => {
+    const cells = getEmptyCells(state);
     let bestScore = -1000, bestMove = [-1, -1];
-    const player = game._state.currentPlayer
+    const player = state.currentPlayer
     for (const cell of cells) {
         const x = cell[0];
         const y = cell[1];
-        const newGame = new Game(copy(game._state));
+        const newGame = new Game(copy(state));
         newGame.doMove(x, y, newGame._state.currentPlayer);
-        const score = minimax(newGame,0, player)   
+        const score = minimax(newGame,0, player, maxDepth)   
         if(score > bestScore) {
             bestScore = score;
             bestMove = cell;

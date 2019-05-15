@@ -2,6 +2,7 @@ import React from 'react';
 import Cell from './Cell';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import socketIOClient from "socket.io-client";
+import findBestMove from '../lib/minimax'
 
 const constants = {
     P1_WON : 1,
@@ -21,11 +22,18 @@ export default class Board extends React.Component {
             this.socket.emit("test")
         })
         this.socket.on('updateView',(state)=>{
-            this.setState({...state})
+            this.setState({...state}, () => {
+                if(this.state.currentPlayer === 2) {
+                    const move = findBestMove(this.state);
+                    this.socket.emit('move', {i:move[0],j:move[1], player: this.state.currentPlayer})
+                }
+            })
         })
     }
 
     onCellClick(i,j) {
+        if(this.state.currentPlayer === 2)
+            return;
         this.socket.emit('move', {i,j, player: this.state.currentPlayer})
     }
 
