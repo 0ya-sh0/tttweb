@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import PageLocalGame from './components/PageLocalGame';
 import PageAiGame from './components/PageAiGame';
 import PageHome from './components/PageHome';
+import PageOnlineGame from './components/PageOnlineGame';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route exact path = "/" component = {PageHome}></Route>
           <Route path = "/local/" component = {PageLocalGame}></Route>
           <Route path = "/ai/" component = {PageAiGame}></Route>
+          <Route path = "/online/" component = {PageOnlineGame}></Route>
       </Router>
     </div>
   );
