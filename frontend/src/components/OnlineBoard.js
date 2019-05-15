@@ -5,7 +5,7 @@ import socketIOClient from "socket.io-client";
 export default class OnlineBoard extends Board {
     constructor(props) {
         super(props);
-        this.socket = socketIOClient('http://localhost:4300');
+        this.socket = socketIOClient('/');
         if(this.props.whoami === 1) {
             this.socket.emit('create', this.props.id);
         } else {
