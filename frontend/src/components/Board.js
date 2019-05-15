@@ -1,8 +1,51 @@
 import React from 'react';
 import Cell from './Cell';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+export default class Board extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {}
+        this.onCellClick = this.onCellClick.bind(this);
+        this.onUpdateView = this.onUpdateView.bind(this);
+    }
+
+    onCellClick(i,j) {}
+    onUpdateView(state) {}
+    getMessage() {}
+
+    render() {
+        let rows = this.state.board == null?[]: this.state.board.map((row, i)=>{
+            let cols = row.map((col, j)=>
+                <div key={j} style = {{marginLeft:"5px", marginRight:"5px"}}>
+                        <Cell cell = {col} i = {i} j = {j} onClick = {this.onCellClick}></Cell>
+                </div>
+            )
+            return (
+                <div key={i}>
+                    {cols}
+                </div>
+            )
+        })
+        
+        return (
+            <div>
+                <h3 style={{textAlign:"center"}}>Tic Tac Toe</h3>
+                <h3 style={{textAlign:"center"}}>{this.getMessage()}</h3>
+                <div className="row">   
+                    <div className="col-md-5 col-sm-5"></div>
+                    {rows}
+                </div>
+            </div>);
+    }
+}
+
+/*
+import React from 'react';
+import Cell from './Cell';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import socketIOClient from "socket.io-client";
-import findBestMove from '../lib/minimax'
 
 const constants = {
     P1_WON : 1,
@@ -73,3 +116,4 @@ export default class Board extends React.Component {
             </div>);
     }
 }
+*/

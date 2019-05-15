@@ -1,5 +1,7 @@
 import React from 'react';
-export default class PageHome extends React.Component {
+import LocalBoard from './LocalBoard';
+
+export default class PageLocalGame extends React.Component {
 
     constructor(props) {
         super(props);
@@ -8,7 +10,7 @@ export default class PageHome extends React.Component {
     render() {
         return (
             <div>
-                home page
+                <LocalBoard></LocalBoard>
             </div>
         )
     }

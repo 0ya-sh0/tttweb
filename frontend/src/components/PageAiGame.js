@@ -1,7 +1,7 @@
 import React from 'react';
-import Board from './Board';
+import AiBoard from './AiBoard';
 
-export default class PageGame extends React.Component {
+export default class PageAiGame extends React.Component {
 
     constructor(props) {
         super(props);
@@ -10,7 +10,7 @@ export default class PageGame extends React.Component {
     render() {
         return (
             <div>
-                <Board></Board>
+                <AiBoard></AiBoard>
             </div>
         )
     }
