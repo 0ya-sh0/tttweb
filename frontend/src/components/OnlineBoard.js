@@ -26,15 +26,14 @@ export default class OnlineBoard extends Board {
 
     getMessage() {
         let message;
-        console.log(this.state);
-        if(this.state == null) {
+        if(this.state.board == null) {
             message = "loading"
         } else if(this.state.gameComplete === constants.GAME_ON) {
             message = this.state.currentPlayer === 1?"Player 'O's turn": "Playe 'X's turn"
         } else if(this.state.gameComplete === constants.TIE) {
             message = "Its a Tie"
         } else {
-            message = "Player " + this.state.gameComplete === constants.P1_WON ? "O":"X" + " won"
+            message = "Player " + (this.state.gameComplete == constants.P1_WON ? "O":"X") + " won"
         }
         return message;
     }
