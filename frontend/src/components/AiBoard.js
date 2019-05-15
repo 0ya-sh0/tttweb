@@ -37,7 +37,7 @@ export default class LocalBoard extends Board {
         } else if(this.state.gameComplete === constants.TIE) {
             message = "Its a Tie"
         } else {
-            message = "Player " + this.state.gameComplete === constants.P1_WON ? "O":"X" + " won"
+            message = "Player " + (this.state.gameComplete === constants.P1_WON ? "O":"X") + " won"
         }
         return message;
     }

@@ -3,7 +3,7 @@ const server = require('http').createServer(app);
 const initSocketIo = require('./io').init;
 
 initSocketIo(server);
-server.listen(4300,()=>{
+server.listen(3000,()=>{
     console.log("server started")
 });
 
