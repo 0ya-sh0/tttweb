@@ -22,7 +22,7 @@ export default class LocalBoard extends Board {
             if(this.state.currentPlayer === 2) {
                 const move = findBestMove(this.state);
                 const newState = this.game.doMove(move[0],move[1],this.state.currentPlayer);
-                this.onUpdateView(newState);
+                setTimeout(() => {this.onUpdateView(newState);}, 100);
             }
         });
     }
