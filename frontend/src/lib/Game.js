@@ -1,6 +1,6 @@
 const constants = require('./constants')
 const GameState = require('./GameState')
-class Game {
+export default class Game {
 
     constructor(state) {
         if(state) {
