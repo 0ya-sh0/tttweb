@@ -100,4 +100,4 @@ const findBestMove = (state, maxDepth = 100) => {
     return bestMove;
 }
 
-module.exports = findBestMove
+export default findBestMove;

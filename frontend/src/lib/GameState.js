@@ -1,6 +1,6 @@
 const constants = require('./constants')
 
-class GameState {
+export default class GameState {
     constructor() {
         this.currentPlayer = 1;
         this.moves = 0;
@@ -24,5 +24,3 @@ class GameState {
         return rows;
     }
 }
-
-module.exports = GameState;
