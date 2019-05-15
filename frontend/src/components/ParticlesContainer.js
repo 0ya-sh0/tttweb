@@ -22,35 +22,35 @@ var options1 = {
             }
         },
         "color": {
-            "value": "#ffffff"
+            "value": "#ff0000"
         },
         "shape": {
             "type": "circle",
             "stroke": {
-                "width": 2,
-                "color": "orange"
+                "width": 1,
+                "color": "black"
             },
             "polygon": {
                 "nb_sides": 4
             }
         },
         "opacity": {
-            "value": 0.4008530152163807,
+            "value": 0.3,
             "random": false,
             "anim": {
                 "enable": false,
                 "speed": 1,
-                "opacity_min": 0.1,
+                "opacity_min": 0.3,
                 "sync": false
             }
         },
         "size": {
-            "value": 1.5,
+            "value": 5,
             "random": true,
             "anim": {
                 "enable": false,
                 "speed": 40,
-                "size_min": 0.1,
+                "size_min": 1,
                 "sync": false
             }
         },
