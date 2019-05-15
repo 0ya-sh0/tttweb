@@ -1,6 +1,6 @@
-const copy = require('../util/copy')
-const constants = require('./constants');
-const Game = require('./Game')
+import constants from './constants'
+import Game from './Game'
+import copy from '../util/copy'
 
 const WIN_SCORE = 10;
 const LOSE_SCORE = -10;

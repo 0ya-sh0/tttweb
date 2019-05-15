@@ -10,10 +10,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-          <Route exact path = "/" component = {PageHome}></Route>
-          <Route path = "/local/" component = {PageLocalGame}></Route>
-          <Route path = "/ai/" component = {PageAiGame}></Route>
-          <Route path = "/online/" component = {PageOnlineGame}></Route>
+          <Route exact path = "/app" component = {PageHome}></Route>
+          <Route path = "/app/local/" component = {PageLocalGame}></Route>
+          <Route path = "/app/ai/" component = {PageAiGame}></Route>
+          <Route path = "/app/online/" component = {PageOnlineGame}></Route>
       </Router>
     </div>
   );

@@ -1,4 +1,4 @@
-module.exports = function copy(o) {
+export default function copy(o) {
     var output, v, key;
     output = Array.isArray(o) ? [] : {};
     for (key in o) {

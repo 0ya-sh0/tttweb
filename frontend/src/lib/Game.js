@@ -1,5 +1,5 @@
-const constants = require('./constants')
-const GameState = require('./GameState')
+import constants from './constants'
+import GameState from './GameState'
 export default class Game {
 
     constructor(state) {
