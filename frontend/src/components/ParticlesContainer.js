@@ -5,7 +5,7 @@ import Particles from 'react-particles-js';
 class ParticlesContainer extends Component {
 render() {
     return ( 
-        <Particles params={options1} />
+        <Particles params={options1} className = "particles"/>
     )
 }
 }
