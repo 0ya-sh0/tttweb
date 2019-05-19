@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ErrorMessage from './ErrorMessage';
 
 class PageHome extends React.Component {
 
@@ -12,7 +13,8 @@ class PageHome extends React.Component {
             p1 :'',
             p2 :'',
             room : '',
-            ai:'0'
+            ai:'0',
+            error:''
         }
     }
 
@@ -28,12 +30,26 @@ class PageHome extends React.Component {
         this.props.history.push(`/app/ai?p1=${this.state.p1}&ai=${this.state.ai}`)
     }
 
-    onCreateGame = () => {
-        this.props.history.push(`/app/online?room=${this.state.room}&created=1`)
+    onCreateGame = async () => {
+        if(this.state.room == null || this.state.room == '') {
+            return
+        }
+        const res = await fetch(`/api/canCreate/${this.state.room}`)
+        const json = await res.json()
+        if(json.response) 
+            return this.props.history.push(`/app/online?room=${this.state.room}&created=1`);
+        this.setState({error:'cannot create room, room already exist'})
     }
 
-    onJoinGame = () => {
-        this.props.history.push(`/app/online?room=${this.state.room}&created=0`)
+    onJoinGame = async () => {
+        if(this.state.room == null || this.state.room == '') {
+            return
+        }
+        const res = await fetch(`/api/canJoin/${this.state.room}`)
+        const json = await res.json()
+        if(json.response) 
+            return this.props.history.push(`/app/online?room=${this.state.room}&created=0`);
+        this.setState({error:'cannot join room, room is not available'})
     }
 
     onP1change = (event) => {
@@ -128,6 +144,7 @@ class PageHome extends React.Component {
                         <h1 style={{textAlign:"center"}}>TIC TAC TOE</h1>
                     </div>  
                 </div>  
+                <ErrorMessage msg={this.state.error}></ErrorMessage>
                 <div className="row">
                     <div className="col-md-12">
                         {form}

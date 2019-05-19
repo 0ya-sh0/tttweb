@@ -20,7 +20,22 @@ function joinGame(id, socket) {
     game.start(socket)
 }
 
+function canCreate(id) {
+    let game = Games.get(id)
+    return (game == undefined || game == null);
+}
+
+function canJoin(id) {
+    console.log(id)
+    let game = Games.get(id)
+    if(game == null)
+        return false;
+    return !game.gameStarted
+}
+
 module.exports = {
     createGame,
-    joinGame
+    joinGame,
+    canCreate,
+    canJoin
 }
