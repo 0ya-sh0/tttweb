@@ -23,11 +23,11 @@ class PageHome extends React.Component {
     }
 
     onStartLocal = () => {
-        this.props.history.push(`/app/local?p1=${this.state.p1}&p2=${this.state.p2}`)
+        this.props.history.push(`/app/local`);//?p1=${this.state.p1}&p2=${this.state.p2}`)
     }
 
     onStartAi = () => {
-        this.props.history.push(`/app/ai?p1=${this.state.p1}&ai=${this.state.ai}`)
+        this.props.history.push(`/app/ai`);//?p1=${this.state.p1}&ai=${this.state.ai}`)
     }
 
     onCreateGame = async () => {
@@ -72,20 +72,20 @@ class PageHome extends React.Component {
     render() {
         const formLocal = (
             <div>
-                <div className="form-group">
+              {/*  <div className="form-group">
                     <label>Player 1:</label>
                     <input type="text"  className="form-control" value={this.state.p1} onChange={this.onP1change}/>
                 </div>
                 <div className="form-group">
                     <label>Player 2:</label>
                     <input type="text" className="form-control" value={this.state.p2} onChange={this.onP2change}/>
-                </div>
+        </div> */}
                 <button className="btn btn-primary" onClick={this.onStartLocal}>Start game</button>
             </div>
         )
 
         const formAi = (
-            <div>
+            <div>{/*
                 <div className="form-group">
                     <label>Your name:</label>
                     <input type="text" className="form-control" value={this.state.p1} onChange={this.onP1change}/>
@@ -98,7 +98,7 @@ class PageHome extends React.Component {
                         <option value="2">Medium</option>
                         <option value="3">Hard</option>
                     </select>
-                </div>
+            </div>*/}
                 <button className="btn btn-primary" onClick={this.onStartAi}>Start game</button>
             </div>
         )
@@ -127,7 +127,7 @@ class PageHome extends React.Component {
                     <select className="form-control" onChange={this.onSelectChange} value={this.state.select}>
                         <option value={this.options[0]}>Play Locally</option>
                         <option value={this.options[1]}>Play againts Computer</option>
-                        <option value={this.options[2]}>Play againts Friend Online</option>
+                        {/*<option value={this.options[2]}>Play againts Friend Online</option>*/}
                     </select>
                 </div>
                 {this.state.select=== this.options[0]?formLocal:null}

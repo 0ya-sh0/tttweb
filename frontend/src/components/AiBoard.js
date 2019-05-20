@@ -29,7 +29,6 @@ export default class LocalBoard extends Board {
 
     getMessage() {
         let message;
-        console.log(this.state);
         if(this.state == null) {
             message = "loading"
         } else if(this.state.gameComplete === constants.GAME_ON) {
